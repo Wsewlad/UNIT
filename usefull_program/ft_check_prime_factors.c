@@ -1,35 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_check_prime_factors.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfil <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 18:26:42 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/08 15:30:24 by vfil             ###   ########.fr       */
+/*   Created: 2017/11/10 12:48:11 by vfil              #+#    #+#             */
+/*   Updated: 2017/11/10 13:43:28 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	ft_check_prime_factors(int num)
 {
-	char	*new;
-	int		i;
+	int i;
+	int j;
+	int is_prime;
 
-	i = 0;
-	new = NULL;
-	if (s && f)
+	if (num)
 	{
-		new = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
-		if (new == NULL)
-			return (NULL);
-		while (s[i])
+		i = 2;
+		while (i < num)
 		{
-			new[i] = (*f)(s[i]);
+			if (num % i == 0)
+			{
+				is_prime = 1;
+				j = 2;
+				while (j <= i / 2)
+				{
+					if (i % j == 0)
+						is_prime = 0;
+					j++;
+				}
+				if (is_prime == 1)
+				{
+					ft_putnbr(i);
+					ft_putchar('\n');
+				}
+			}
 			i++;
 		}
-		new[i] = '\0';
 	}
-	return (new);
+}
+
+int		main(int argc, char **argv)
+{
+	if (argc > 1)
+		ft_check_prime_factors(ft_atoi(argv[1]));
+	return (0);
 }

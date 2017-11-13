@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfil <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 18:26:42 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/08 15:30:24 by vfil             ###   ########.fr       */
+/*   Created: 2017/11/07 13:06:35 by vfil              #+#    #+#             */
+/*   Updated: 2017/11/08 15:08:28 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	char	*new;
-	int		i;
+	t_list	*crawler;
 
-	i = 0;
-	new = NULL;
-	if (s && f)
+	if (lst && f)
 	{
-		new = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
-		if (new == NULL)
-			return (NULL);
-		while (s[i])
+		crawler = lst;
+		while (crawler)
 		{
-			new[i] = (*f)(s[i]);
-			i++;
+			(*f)(crawler);
+			crawler = crawler->next;
 		}
-		new[i] = '\0';
 	}
-	return (new);
 }

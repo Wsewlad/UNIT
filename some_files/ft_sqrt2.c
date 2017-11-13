@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfil <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 18:26:42 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/08 15:30:24 by vfil             ###   ########.fr       */
+/*   Created: 2017/10/25 17:51:50 by vfil              #+#    #+#             */
+/*   Updated: 2017/10/25 18:09:48 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdio.h>
 
-char	*ft_strmap(char const *s, char (*f)(char))
+int		ft_sqrt(int nb)
 {
-	char	*new;
-	int		i;
+	int i;
+	int end;
 
 	i = 0;
-	new = NULL;
-	if (s && f)
+	end = nb / 3 + 1;
+	while (i <= end)
 	{
-		new = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
-		if (new == NULL)
-			return (NULL);
-		while (s[i])
-		{
-			new[i] = (*f)(s[i]);
-			i++;
-		}
-		new[i] = '\0';
+		if ((i * i) == nb)
+			return (i);
+		i++;
 	}
-	return (new);
+    return	(0);
+}
+
+int		main(void)
+{
+	int bn;
+
+	scanf("%i", &bn);
+	printf("%i\n", ft_sqrt(bn));
+	return (0);
 }

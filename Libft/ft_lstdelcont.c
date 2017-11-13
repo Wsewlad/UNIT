@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelcont.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfil <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 18:26:42 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/08 15:30:24 by vfil             ###   ########.fr       */
+/*   Created: 2017/11/08 10:26:18 by vfil              #+#    #+#             */
+/*   Updated: 2017/11/09 15:23:40 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	ft_lstdelcont(void *content, size_t size)
 {
-	char	*new;
-	int		i;
-
-	i = 0;
-	new = NULL;
-	if (s && f)
+	if (content && size)
 	{
-		new = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
-		if (new == NULL)
-			return (NULL);
-		while (s[i])
-		{
-			new[i] = (*f)(s[i]);
-			i++;
-		}
-		new[i] = '\0';
+		free(content);
+		content = NULL;
 	}
-	return (new);
 }

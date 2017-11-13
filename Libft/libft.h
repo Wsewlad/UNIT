@@ -6,7 +6,7 @@
 /*   By: vfil <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 15:43:00 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/07 11:44:08 by vfil             ###   ########.fr       */
+/*   Updated: 2017/11/09 15:08:02 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,11 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_print_list(t_list *head);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstadd(t_list **alst, t_list *new);
+void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void				ft_lstdelcont(void *content, size_t size);
+char				*ft_strrev(char *str);
+char				*ft_itoa_base(int n, int base);
 
 #endif

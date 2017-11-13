@@ -6,7 +6,7 @@
 /*   By: vfil <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 14:55:42 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/04 14:05:51 by vfil             ###   ########.fr       */
+/*   Updated: 2017/11/08 15:31:44 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	new = NULL;
 	i = 0;
-	if (s)
+	if (s && f)
 	{
 		new = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1));
 		if (new == NULL)
 			return (new);
 		while (s[i])
 		{
-			new[i] = f(i, s[i]);
+			new[i] = (*f)(i, s[i]);
 			i++;
 		}
 		new[i] = '\0';

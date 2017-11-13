@@ -6,10 +6,17 @@
 /*   By: vfil <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 11:48:34 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/07 11:53:29 by vfil             ###   ########.fr       */
+/*   Updated: 2017/11/09 18:24:49 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd()
+void	ft_lstadd(t_list **alst, t_list *new)
+{
+	if (alst && new)
+	{
+		new->next = *alst;
+		*alst = new;
+	}
+}

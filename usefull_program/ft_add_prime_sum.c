@@ -1,38 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_add_prime_sum.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfil <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/27 23:08:26 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/07 16:55:45 by vfil             ###   ########.fr       */
+/*   Created: 2017/11/10 12:19:06 by vfil              #+#    #+#             */
+/*   Updated: 2017/11/10 12:36:16 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-char	*ft_strstr(const char *haystack, const char *needle)
+int	ft_add_prime_sum(int end)
 {
 	int	i;
-	int	j;
-	int y;
+	int j;
+	int	is_prime;
+	int sum;
 
-	i = 0;
-	while (haystack[i])
+	i = 2;
+	sum = 0;
+	if (!end)
+		return (end);
+	while (i <= end)
 	{
-		y = i;
-		j = 0;
-		while (haystack[y] == needle[j] && needle[j])
+		is_prime = 1;
+		j = 2;
+		while (j <= i / 2)
 		{
-			y++;
+			if (i % j == 0)
+				is_prime = 0;
 			j++;
 		}
-		if (!needle[j])
-			return ((char*)&haystack[y - j]);
+		if (is_prime == 1)
+			sum += i;
 		i++;
 	}
-	if (*haystack == '\0' && *needle == '\0')
-		return ((char*)haystack);
-	return (NULL);
+	return (sum);
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc > 1)
+		ft_putnbr(ft_add_prime_sum(ft_atoi(argv[1])));
+		ft_putchar('\n');
+	return (0);
 }
