@@ -6,11 +6,22 @@
 /*   By: vfil <vfil@student.unit.ua>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 11:07:33 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/23 16:11:49 by vfil             ###   ########.fr       */
+/*   Updated: 2017/11/27 15:41:04 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+int		ft_check_nl(char *str)
+{
+	while (*(str + 1))
+	{
+		if (*(str - 1) == '\n' && *str == '\n' && *(str + 1) == '\n')
+			return (0);
+		str++;
+	}
+	return (1);
+}
 
 int		ft_count_tetriminos(char *str)
 {

@@ -6,7 +6,7 @@
 /*   By: vfil <vfil@student.unit.ua>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 11:23:30 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/24 16:25:06 by vfil             ###   ########.fr       */
+/*   Updated: 2017/11/27 15:40:44 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void			ft_strdel(char **as);
 char			*ft_read_file(char *name);
 void			ft_start(t_tetrim *tt, int count_tt, int *sq_size);
 int				ft_sqrt_mod(int count);
+int				ft_check_nl(char *str);
 int				ft_count_tetriminos(char *str);
 char			**ft_check_all(char *str);
 int				ft_check_end(char *str);
