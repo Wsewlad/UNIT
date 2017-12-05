@@ -6,7 +6,7 @@
 /*   By: vfil <vfil@student.unit.ua>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 15:58:40 by vfil              #+#    #+#             */
-/*   Updated: 2017/12/05 19:56:41 by vfil             ###   ########.fr       */
+/*   Updated: 2017/12/05 17:08:20 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	divide(char **line, char **rem)
 	if (nl)
 	{
 		*line = ft_strsub(*rem, 0, nl - *rem);
-		*rem = ft_strdup(nl + 1);
+		*rem = ft_strsub(*rem, nl - *rem + 1, BUFF_SIZE);
 		return (0);
 	}
 	else
@@ -48,32 +48,35 @@ static int	divide(char **line, char **rem)
 	}
 }
 
+t_list		check_list(t_list *lst, int fd)
+{
+	while (lst->next != NULL)
+	{
+		if (lst->content_size == (size_t)fd)
+			return (*lst);
+		lst = lst->next;
+	}
+	lst->next = ft_lstnew("", 0);
+	lst->next->content_size = fd;
+	return (*lst->next);
+}
+
 int			get_next_line(const int fd, char **line)
 {
-	static t_list	*head;
-	t_list			*lst;
+	static t_list	lst;
+	t_list			buf;
 	int				ret;
 	int				end;
 
 	ret = 0;
 	end = 0;
-	if (!head)
-		head = ft_lstnew(0, 0);
-	lst = head;
-	while (lst && lst->content_size != (size_t)fd)
-		lst = lst->next;
-	if (!lst)
-	{
-		lst = ft_lstnew("", fd);
-//		lst->content_size = fd;
-		lst->next = head;
-		head = lst;
-	}
-	if (!(ft_strchr(lst->content, '\n')))
-		ret = read_file(fd, (char**)&lst->content);
+	if (!lst.content)
+		lst = *ft_lstnew("", 0);
+	buf = check_list(&lst, fd);
+	if (!(ft_strchr(buf.content, '\n')))
+		ret = read_file(fd, (char**)&buf.content);
 	if (!fd || !line || ret == -1)
 		return (-1);
-	end = divide(line, (char**)&lst->content);
-
+	end = divide(line, (char**)&buf.content);
 	return (end ? 0 : 1);
 }

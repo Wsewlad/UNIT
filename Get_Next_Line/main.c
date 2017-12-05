@@ -6,7 +6,7 @@
 /*   By: vfil <vfil@student.unit.ua>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 13:41:04 by vfil              #+#    #+#             */
-/*   Updated: 2017/12/04 19:55:37 by vfil             ###   ########.fr       */
+/*   Updated: 2017/12/05 19:56:45 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,53 @@ int	main(int argc, char **argv)
 {
 	char	*line;
 	int		fd;
-	int		i;
-	int 	j;
+	int		fd2;
+	int		fd3;
+//	int		i;
+//	int 	j;
 
 	if (argc < 2)
 		return (1);
-	i = 1;
+	fd = open(argv[1], O_RDONLY);
+	fd2 = open(argv[2], O_RDONLY);
+	fd3 = open(argv[3], O_RDONLY);
+
+	get_next_line(fd, &line);
+	ft_putstr(line);
+	ft_putchar('\n');
+
+	get_next_line(fd, &line);
+	ft_putstr(line);
+	ft_putchar('\n');
+
+	get_next_line(fd, &line);
+	ft_putstr(line);
+	ft_putchar('\n');
+
+	get_next_line(fd2, &line);
+	ft_putstr(line);
+	ft_putchar('\n');
+
+	get_next_line(fd2, &line);
+	ft_putstr(line);
+	ft_putchar('\n');
+
+	get_next_line(fd2, &line);
+	ft_putstr(line);
+	ft_putchar('\n');
+
+	get_next_line(fd3, &line);
+	ft_putstr(line);
+	ft_putchar('\n');
+
+	get_next_line(fd3, &line);
+	ft_putstr(line);
+	ft_putchar('\n');
+
+	get_next_line(fd3, &line);
+	ft_putstr(line);
+	ft_putchar('\n');
+/*	i = 1;
 	while (argv[i])
 	{
 		if ((fd = open(argv[i], O_RDONLY)))
@@ -34,11 +75,11 @@ int	main(int argc, char **argv)
 					ft_putstr(line);
 					ft_putchar('\n');
 				}
-				else
-					ft_putnbr(j);
+			//	else
+			//		ft_putnbr(j);
 			}
 		}
 		i++;
-	}
+	}*/
 	return (0);
 }
