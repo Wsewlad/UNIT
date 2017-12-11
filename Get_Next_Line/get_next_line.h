@@ -6,7 +6,7 @@
 /*   By: vfil <vfil@student.unit.ua>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 17:52:37 by vfil              #+#    #+#             */
-/*   Updated: 2017/12/05 19:52:56 by vfil             ###   ########.fr       */
+/*   Updated: 2017/12/11 14:52:54 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft/libft.h"
 # include <fcntl.h>
 
-# define BUFF_SIZE 1
+# define BUFF_SIZE 32
 
 int	get_next_line(const int fd, char **line);
 
