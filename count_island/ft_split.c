@@ -6,23 +6,35 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 10:31:04 by exam              #+#    #+#             */
-/*   Updated: 2017/11/21 13:17:07 by exam             ###   ########.fr       */
+/*   Updated: 2017/12/17 18:37:49 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "island.h"
 
-char		*ft_read(int fd)
+char		*ft_read(char *fname)
 {
 	int		ret;
-	char	buf[BUF_SIZE];
+	int		fd;
+	int		bf_size;
+	char	c;
 	char	*res;
+	char	*buf;
 
 	res = NULL;
-	if ((ret = read(fd, buf, BUF_SIZE)))
+	bf_size = 0;
+	if ((fd = open(fname, O_RDONLY)) == -1)
+		return (0);
+	while ((ret = read(fd, &c, 1)))
+		bf_size++;
+	buf = (char*)malloc(sizeof(char) * (bf_size + 1));
+	close(fd);
+	fd = open(fname, O_RDONLY);
+	if ((ret = read(fd, buf, bf_size)))
 		buf[ret] = '\0';
 	if (ret && (res = (char*)malloc(sizeof(char) * (ret + 1))))
 		ft_strncpy(res, buf, ret);
+	free(buf);
 	return (res);
 }
 
@@ -58,14 +70,14 @@ t_count		ft_count_len(char *str)
 	return (res);
 }
 
-char		**ft_split(int fd)
+char		**ft_split(char *fname)
 {
 	t_var	var;
 	t_count cal;
 	char	*str;
 	char	**res;
 
-	if (!(str = ft_read(fd)))
+	if (!(str = ft_read(fname)))
 		return (NULL);
 	cal = ft_count_len(str);
 	var.i = 0;
@@ -83,5 +95,6 @@ char		**ft_split(int fd)
 		var.i++;
 	}
 	res[var.i] = 0;
+	free(str);
 	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 10:16:53 by exam              #+#    #+#             */
-/*   Updated: 2017/11/21 13:50:06 by exam             ###   ########.fr       */
+/*   Updated: 2017/12/17 18:41:29 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,11 @@ typedef struct	s_var
 
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
-char			**ft_split(int fd);
-char			*ft_read(int fd);
+char			**ft_split();
+char			*ft_read(char *fname);
 void			ft_strncpy(char *dst, char *src, int n);
 t_count			ft_count_len(char *str);
 char			**ft_check(char **arr);
-char			u_r_d(char **arr, int i, int j, int *d);
-char            u_r_d_l(char **arr, int i, int j, int *d);
-
-# define BUF_SIZE 10240
+char			check_neighbour(char **arr, int i, int j, int *d);
 
 #endif

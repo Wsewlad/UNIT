@@ -6,7 +6,7 @@
 /*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 10:13:16 by exam              #+#    #+#             */
-/*   Updated: 2017/11/21 13:52:57 by exam             ###   ########.fr       */
+/*   Updated: 2017/12/17 19:08:19 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 int		main(int argc, char **argv)
 {
-	int		fd;
 	char	**arr;
 	int		i;
 
-	if (argc != 2 || ((fd = open(argv[1], O_RDONLY)) == -1) ||
-			!(arr = ft_split(fd)))
+	if (argc != 2 || !(arr = ft_split(argv[1])))
 	{
 		ft_putchar('\n');
 		return (1);
 	}
-	arr = ft_check(arr);
+//	arr = ft_check(arr);
 	i = 0;
 	while (arr[i])
 	{
@@ -46,14 +44,8 @@ char	**ft_check(char **arr)
 		var.j = 0;
 		while (arr[var.i][var.j] != '\0')
 		{
-			if (var.i == 0 && var.j == 0 && arr[var.i][var.j] == 'X')
-				arr[var.i][var.j] = var.d + '0';
-			if (var.i != 0 && var.j == 0 && arr[var.i][var.j] == 'X')
-				arr[var.i][var.j] = u_r_d(arr, var.i, var.j, &var.d);
-			if (var.i != 0 && var.j != 0 &&
-					arr[var.i][var.j] == 'X' && arr[var.i][var.j + 1] != '\0')
-				arr[var.i][var.j] = u_r_d_l(arr, var.i, var.j, &var.d);
-				var.j++;
+			
+			var.j++;
 		}
 		var.i++;
 	}
