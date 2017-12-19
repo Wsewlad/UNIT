@@ -6,7 +6,7 @@
 #    By: vfil <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/26 15:07:48 by vfil              #+#    #+#              #
-#    Updated: 2017/12/13 13:29:12 by vfil             ###   ########.fr        #
+#    Updated: 2017/12/16 17:22:15 by vfil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OSRC	=	$(SRC:.c=.o)
 
 MAKE	=	@make
 
-FLAGS	=	-Wall -Wextra -Werror -I./includes
+FLAGS	=	-Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 all: $(NAME)
