@@ -1,0 +1,57 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+e3r4p2.unit.ua
+Darwin 17.0.0 x86_64
+$> date
+Tue Dec  5 13:15:38 EET 2017
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/c++/4.2.1
+Apple LLVM version 9.0.0 (clang-900.0.34.1)
+Target: x86_64-apple-darwin17.0.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 9.0.0 (clang-900.0.34.1)
+Target: x86_64-apple-darwin17.0.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2017/c-exam-alone-in-the-dark-beginner/exam_20171205/vfil
+
+= Git history ==================================================================
+$> git -C /var/folders/ky/7zxq66k153z92c35nlh7bf400000gp/T/tmpW5VckS/user log --pretty='%H - %an, %ad : %s'
+1923f08292872e8eb49b21a3e75bd0bdc5ea6c8d - Exam 42, Tue Dec 5 13:15:23 2017 +0200 : 3 not finished
+33af0ddf06ef4f889091a44c658152ed705698a2 - Exam 42, Tue Dec 5 11:37:01 2017 +0200 : 2
+1884ed1c2c89466d1a0d38d77b8edc460c7ebae5 - Exam 42, Tue Dec 5 10:38:12 2017 +0200 : 1
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/ky/7zxq66k153z92c35nlh7bf400000gp/T/tmpW5VckS/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  973 Dec  5 13:15 __GIT_HISTORY
+drwxr-xr-x  4 deepthought  deepthought  136 Dec  5 13:15 brackets
+drwxr-xr-x  4 deepthought  deepthought  136 Dec  5 13:15 infin_add
+drwxr-xr-x  3 deepthought  deepthought  102 Dec  5 13:15 sort_list
+
+/var/folders/ky/7zxq66k153z92c35nlh7bf400000gp/T/tmpW5VckS/user/brackets:
+total 16
+-rw-r--r--  1 deepthought  deepthought  1112 Dec  5 13:15 brackets.h
+-rw-r--r--  1 deepthought  deepthought  1722 Dec  5 13:15 main.c
+
+/var/folders/ky/7zxq66k153z92c35nlh7bf400000gp/T/tmpW5VckS/user/infin_add:
+total 16
+-rw-r--r--  1 deepthought  deepthought  1084 Dec  5 13:15 infin.h
+-rw-r--r--  1 deepthought  deepthought  2495 Dec  5 13:15 main.c
+
+/var/folders/ky/7zxq66k153z92c35nlh7bf400000gp/T/tmpW5VckS/user/sort_list:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1304 Dec  5 13:15 sort_list.c
+ 
+= infin_add ====================================================================
+$> gcc -Wextra -Wall -Werror main.c -o user_exe 
+
+Forbidden function call in 'main.c': 'printf'
+Grade: -42
+
+= Final grade: -42 =============================================================

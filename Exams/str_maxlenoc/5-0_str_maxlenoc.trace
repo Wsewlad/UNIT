@@ -1,0 +1,62 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+e2r11p11.unit.ua
+Darwin 17.0.0 x86_64
+$> date
+Fri Nov 10 17:03:15 EET 2017
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/c++/4.2.1
+Apple LLVM version 9.0.0 (clang-900.0.34.1)
+Target: x86_64-apple-darwin17.0.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 9.0.0 (clang-900.0.34.1)
+Target: x86_64-apple-darwin17.0.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2017/c-exam-alone-in-the-dark-beginner/exam_20171110/vfil
+
+= Git history ==================================================================
+$> git -C /var/folders/wg/rw8dk7zs5pj61sby6cbnnn8m0000gp/T/tmpO7479N/user log --pretty='%H - %an, %ad : %s'
+f0ce2cbadb83257a5e37cb265e9c9664d898abaf - Exam 42, Fri Nov 10 17:02:54 2017 +0200 : str_maxlenoc failed
+1bb8ab193ede06c98a74977421ad09a7fb399d6a - Exam 42, Fri Nov 10 15:13:15 2017 +0200 : ft_itoa
+dd3007171e3183ece5b7a6699dec0a7c0ec02328 - Exam 42, Fri Nov 10 14:22:12 2017 +0200 : paramsum
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/wg/rw8dk7zs5pj61sby6cbnnn8m0000gp/T/tmpO7479N/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  760 Nov 10 17:03 __GIT_HISTORY
+drwxr-xr-x  3 deepthought  deepthought  102 Nov 10 17:03 ft_itoa
+drwxr-xr-x  3 deepthought  deepthought  102 Nov 10 17:03 paramsum
+drwxr-xr-x  3 deepthought  deepthought  102 Nov 10 17:03 str_maxlenoc
+
+/var/folders/wg/rw8dk7zs5pj61sby6cbnnn8m0000gp/T/tmpO7479N/user/ft_itoa:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1464 Nov 10 17:03 ft_itoa.c
+
+/var/folders/wg/rw8dk7zs5pj61sby6cbnnn8m0000gp/T/tmpO7479N/user/paramsum:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1252 Nov 10 17:03 paramsum.c
+
+/var/folders/wg/rw8dk7zs5pj61sby6cbnnn8m0000gp/T/tmpO7479N/user/str_maxlenoc:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1965 Nov 10 17:03 str_maxlenoc.c
+ 
+= str_maxlenoc =================================================================
+$> gcc -Wextra -Wall -Werror str_maxlenoc.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./f9t2w81pq4xwdz74g26yafcs "Bonjour"
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./pei4fsv328kdy0jsez5u03oc "bonjouran" "bonjouran" "confiseriean" "bonne annee"
+Command './pei4fsv328kdy0jsez5u03oc "bonjouran" "bonjouran" "confiseriean" "bonne annee"' got killed by a Segmentation fault (Signal -11)
+Grade: 0
+
+= Final grade: 0 ===============================================================

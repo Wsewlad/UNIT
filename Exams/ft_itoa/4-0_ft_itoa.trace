@@ -1,0 +1,123 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+e2r11p11.unit.ua
+Darwin 17.0.0 x86_64
+$> date
+Fri Nov 10 15:13:34 EET 2017
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/c++/4.2.1
+Apple LLVM version 9.0.0 (clang-900.0.34.1)
+Target: x86_64-apple-darwin17.0.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 9.0.0 (clang-900.0.34.1)
+Target: x86_64-apple-darwin17.0.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2017/c-exam-alone-in-the-dark-beginner/exam_20171110/vfil
+
+= Git history ==================================================================
+$> git -C /var/folders/wg/rw8dk7zs5pj61sby6cbnnn8m0000gp/T/tmpb4Ghhv/user log --pretty='%H - %an, %ad : %s'
+1bb8ab193ede06c98a74977421ad09a7fb399d6a - Exam 42, Fri Nov 10 15:13:15 2017 +0200 : ft_itoa
+dd3007171e3183ece5b7a6699dec0a7c0ec02328 - Exam 42, Fri Nov 10 14:22:12 2017 +0200 : paramsum
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/wg/rw8dk7zs5pj61sby6cbnnn8m0000gp/T/tmpb4Ghhv/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  494 Nov 10 15:13 __GIT_HISTORY
+drwxr-xr-x  3 deepthought  deepthought  102 Nov 10 15:13 ft_itoa
+drwxr-xr-x  3 deepthought  deepthought  102 Nov 10 15:13 paramsum
+
+/var/folders/wg/rw8dk7zs5pj61sby6cbnnn8m0000gp/T/tmpb4Ghhv/user/ft_itoa:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1464 Nov 10 15:13 ft_itoa.c
+
+/var/folders/wg/rw8dk7zs5pj61sby6cbnnn8m0000gp/T/tmpb4Ghhv/user/paramsum:
+total 8
+-rw-r--r--  1 deepthought  deepthought  1252 Nov 10 15:13 paramsum.c
+ 
+= ft_itoa ======================================================================
+$> gcc -Wextra -Wall -Werror main.c ft_itoa.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./rtdmw1a1zbjk5ba3d6iub9fg 
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./ox7y992cvan7g98uae92kn7a "1" "2" "3" "4" "5" "6"
+$> diff -U 3 user_output_test2 test2.output | cat -e
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./bn22tf67v3wkj1pn9sq7j2go 0
+$> diff -U 3 user_output_test3 test3.output | cat -e
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./sr8ir7nm18nu7ooh4hcpxio8 2147483647
+$> diff -U 3 user_output_test4 test4.output | cat -e
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./xmf0hq5jpcdm4yfbr6k2aqq5 -2147483648
+$> diff -U 3 user_output_test5 test5.output | cat -e
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./yrs82y13t4734tdilb062v3f -168
+$> diff -U 3 user_output_test6 test6.output | cat -e
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./fanhgwygibm7lqduykn4rwbz 195
+$> diff -U 3 user_output_test7 test7.output | cat -e
+
+Diff OK :D
+= Test 8 ===================================================
+$> ./ktyxok8n0vlcgvx8m4dv21zv -60
+$> diff -U 3 user_output_test8 test8.output | cat -e
+
+Diff OK :D
+= Test 9 ===================================================
+$> ./g12oa9ky4cy02rnnf6z8850p -180
+$> diff -U 3 user_output_test9 test9.output | cat -e
+
+Diff OK :D
+= Test 10 ==================================================
+$> ./msuxb0secjtsa5sbp435brgi 155
+$> diff -U 3 user_output_test10 test10.output | cat -e
+
+Diff OK :D
+= Test 11 ==================================================
+$> ./khijoukqlxshrq57orkza370 -1362292
+$> diff -U 3 user_output_test11 test11.output | cat -e
+
+Diff OK :D
+= Test 12 ==================================================
+$> ./cmgsg58h9oy7qm0swiz0roia -1704461
+$> diff -U 3 user_output_test12 test12.output | cat -e
+
+Diff OK :D
+= Test 13 ==================================================
+$> ./d1fuhex8khp0q8pow4mm61vd 824246
+$> diff -U 3 user_output_test13 test13.output | cat -e
+
+Diff OK :D
+= Test 14 ==================================================
+$> ./szc3wevrnhwk35lhpyi8ka4n -1084875
+$> diff -U 3 user_output_test14 test14.output | cat -e
+
+Diff OK :D
+= Test 15 ==================================================
+$> ./tc3wxlsg1np4ok9kq5je79cv -611734
+$> diff -U 3 user_output_test15 test15.output | cat -e
+
+Diff OK :D
+Grade: 1
+
+= Final grade: 1 ===============================================================
