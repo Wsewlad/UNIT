@@ -6,7 +6,7 @@
 /*   By: vfil <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 15:43:00 by vfil              #+#    #+#             */
-/*   Updated: 2017/11/09 15:08:02 by vfil             ###   ########.fr       */
+/*   Updated: 2017/12/19 14:46:42 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+# define BUFF_SIZE 42
 
 typedef struct		s_list
 {
@@ -88,5 +90,6 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstdelcont(void *content, size_t size);
 char				*ft_strrev(char *str);
 char				*ft_itoa_base(int n, int base);
+int					get_next_line(const int fd, char **line);
 
 #endif

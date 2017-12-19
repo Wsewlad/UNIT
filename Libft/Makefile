@@ -6,7 +6,7 @@
 #    By: vfil <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/26 15:07:48 by vfil              #+#    #+#              #
-#    Updated: 2017/11/09 15:08:44 by vfil             ###   ########.fr        #
+#    Updated: 2017/12/19 15:11:50 by vfil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC		=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 			ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c \
 			ft_lstdelone.c ft_print_list.c ft_lstdel.c ft_lstadd.c \
 			ft_lstiter.c ft_lstmap.c ft_lstdelcont.c ft_strrev.c \
-			ft_itoa_base.c
+			ft_itoa_base.c get_next_line.c
 
 OSRC	=	$(SRC:.c=.o)
 
@@ -39,6 +39,9 @@ all: $(NAME)
 $(NAME):
 	@gcc $(FLAGS) -c $(SRC)
 	@ar rc $(NAME) $(OSRC)
+
+%.o : %.c
+	@gcc $(FLAGS) -c $<
 
 clean:
 	@rm -f *.o
