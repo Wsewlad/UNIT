@@ -11,4 +11,4 @@ the popular game Tetris*
 * Each character is either a block character(’#’ ) or an empty character (’.’).
 • Each block of a Tetrimino touch at least one other block on any of his 4 sides (up, down, left and right).
 
-## The goal of this project is to arrange every Tetriminos with each others in order to make the smallest possible square, with  assigning a capital letter to eachTetrimino, starting with ’A’ and increasing for each new Tetrimino.
+The goal of this project is to arrange every Tetriminos with each others in order to make the smallest possible square, with  assigning a capital letter to eachTetrimino, starting with ’A’ and increasing for each new Tetrimino.
