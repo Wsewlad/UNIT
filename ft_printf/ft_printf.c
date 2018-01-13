@@ -10,73 +10,54 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libftprintf.h"
 
-void	prntf_parse()
+int		is_specifier(char c)
 {
+	char	*formats;
 
+	formats = "sSpdDioOuUxXcC";
+	while (*formats)
+	{
+		if (c == *formats)
+			return (1);
+		formats++;
+	}
+	return (0);
 }
 
-void	*ft_strjoin_del(char *s1, char *s2)
+int		prntf_parse(char **res, char *format, va_list ap)
 {
-	char	*new;
-	int		i;
+	t_conversions	spec;
+	int				step;
 
-	new = NULL;
-	i = 0;
-	if (s1 && s2)
+	step = 0;
+	while (!(is_specifier(*(format - 1))))
 	{
-		if ((new = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1)))
-		{
-			while (*s1)
-			{
-				new[i++] = *s1;
-				s1++;
-			}
-			while (*s2)
-			{
-				new[i++] = *s2;
-				s2++;
-			}
-			new[i] = '\0';
-		}
+		check_init_flags();
+		check_init_fwidth();
+		check_init_precision();
+		check_init_modifiers();
+		/*
+		if (*format == 's' && (spec.s = va_arg(ap, char *)))
+			*res = ft_strjoin(*res, spec.s);
+		else if (*format == 'd' && (spec.d = va_arg(ap, int)))
+			*res = ft_strjoin(*res, ft_itoa(spec.d));
+		else if (*format == 'c' && (spec.c = (char)va_arg(ap, int)))
+			*res = ft_chrjoin(*res, spec.c);*/
+		format += step;
+		step++;
 	}
-	ft_strdel(&s1);
-	s1 = new;
-}
-
-void	ft_chrjoin(char *s1, char s2)
-{
-	char	*new;
-	int		i;
-
-	new = NULL;
-	i = 0;
-	if (s1 && s2)
-	{
-		if ((new = ft_strnew(ft_strlen(s1) + 2)))
-		{
-			while (*s1)
-			{
-				new[i++] = *s1;
-				s1++;
-			}
-			new[i++] = s2;
-			new[i] = '\0';
-		}
-	}
-	ft_strdel(&s1);
-	s1 = new;
+	return (step);
 }
 
 void	ft_printf(const char *restrict format, ...)
 {
 	va_list ap;
-	t_types	type;
 	char	*res;
-	char	conv[14] = "sSpdDioOuUxXcC";
+	int		step;
 
+	step = 0;
 	res = ft_strnew(0);
 	va_start(ap, format);
 	while (*format)
@@ -84,18 +65,12 @@ void	ft_printf(const char *restrict format, ...)
 		if (*format == '%')
 		{
 			format++;
-
-			if (*format == 's' && (type.s = va_arg(ap, char *)))
-				ft_strjoin_del(res, type.s);
-			else if (*format == 'd' && (type.d = va_arg(ap, int)))
-				ft_strjoin_del(ft_itoa(type.d));
-			else if (*format == 'c' && (type.c = (char)va_arg(ap, int)))
-				ft_chrjoin(type.c);
-			format++;
+			step = prntf_parse(&res, (char*)format, ap);
+			format += step;
 		}
 		if (*format)
 		{
-			ft_chrjoin(res, *format);
+			res = ft_chrjoin(res, *format);
 			format++;
 		}
 	}
@@ -103,8 +78,9 @@ void	ft_printf(const char *restrict format, ...)
 	ft_putstr(res);
 }
 
-int	main(void)
+int		main(void)
 {
-	ft_printf("Hello %d %s %d %c", 10, "World!", 25, 'p');
+	ft_printf("ft_printf %dd %s %d %c\n", 10, "World!", 25, 'p');
+	printf("printf %d %s %d %c\n", 10, "World!", 25, 'p');
 	return (0);
 }

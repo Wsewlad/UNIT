@@ -19,11 +19,20 @@
 
 void	ft_printf(const char *restrict format, ...);
 
-typedef union		u_types
+typedef union		u_conversions
 {
 	unsigned char	c;
 	int				d;
 	char			*s;
-}					t_types;
+}					t_conversions;
+
+typedef struct	s_flags
+{
+	int 		minus;
+	int 		plus;
+	int 		zero;
+	int 		hash;
+	int 		space;
+}				t_flags;
 
 #endif
