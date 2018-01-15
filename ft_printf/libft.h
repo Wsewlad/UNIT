@@ -6,7 +6,7 @@
 /*   By: vfil <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/26 15:43:00 by vfil              #+#    #+#             */
-/*   Updated: 2017/12/19 14:46:42 by vfil             ###   ########.fr       */
+/*   Updated: 2018/01/15 16:43:48 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char(*f)(unsigned int, char));
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_chrjoin(char *s1, char s2);
+void				ft_chrjoin_free(char **s1, char s2);
 char				*ft_strtrim(char const *s);
 char				*ft_itoa(int n);
 char				**ft_strsplit(char const *s, char c);

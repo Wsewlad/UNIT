@@ -12,42 +12,30 @@
 
 #include "libftprintf.h"
 
-int		is_specifier(char c)
-{
-	char	*formats;
-
-	formats = "sSpdDioOuUxXcC";
-	while (*formats)
-	{
-		if (c == *formats)
-			return (1);
-		formats++;
-	}
-	return (0);
-}
-
 int		prntf_parse(char **res, char *format, va_list ap)
 {
-	t_conversions	spec;
+	t_conversions	cl;
+	t_spec_elem		spec;
 	int				step;
 
 	step = 0;
-	while (!(is_specifier(*(format - 1))))
-	{
-		check_init_flags();
-		check_init_fwidth();
-		check_init_precision();
-		check_init_modifiers();
+	step = check_init_specification(format, &spec);
+	printf("minus: %d plus: %d zero: %d hash: %d space: %d fwidth: %d precision: %d smod: %s", spec.flags.minus, spec.flags.plus, spec.flags.zero,
+		   spec.flags.hash, spec.flags.space, spec.fwidth, spec.precision, spec.smod);
+	/*while (!(is_specifier(*(format - 1))))
+	{*/
+		//step = check_init_specification();
 		/*
-		if (*format == 's' && (spec.s = va_arg(ap, char *)))
-			*res = ft_strjoin(*res, spec.s);
-		else if (*format == 'd' && (spec.d = va_arg(ap, int)))
-			*res = ft_strjoin(*res, ft_itoa(spec.d));
-		else if (*format == 'c' && (spec.c = (char)va_arg(ap, int)))
-			*res = ft_chrjoin(*res, spec.c);*/
-		format += step;
+		if (*format == 's' && (cl.s = va_arg(ap, char *)))
+			*res = ft_strjoin(*res, cl.s);
+		else if (*format == 'd' && (cl.d = va_arg(ap, int)))
+			*res = ft_strjoin(*res, ft_itoa(l.d));
+		else if (*format == 'c' && (cl.c = (char)va_arg(ap, int)))
+			*res = ft_chrjoin(*res, cl.c);*/
+		/*format += step;
 		step++;
-	}
+	}*/
+	ft_strdel(&spec.smod);
 	return (step);
 }
 
@@ -70,17 +58,20 @@ void	ft_printf(const char *restrict format, ...)
 		}
 		if (*format)
 		{
-			res = ft_chrjoin(res, *format);
+			ft_chrjoin_free(&res, *format);
 			format++;
 		}
 	}
 	va_end(ap);
+	//system("leaks a.out");
 	ft_putstr(res);
+	ft_strdel(&res);
 }
 
 int		main(void)
 {
-	ft_printf("ft_printf %dd %s %d %c\n", 10, "World!", 25, 'p');
-	printf("printf %d %s %d %c\n", 10, "World!", 25, 'p');
+	ft_printf("ft_printf %-+ #500.70lld\n", 10);
+	//printf("printf %d %s %d %c\n", 10, "World!", 25, 'p');
+
 	return (0);
 }
