@@ -13,7 +13,7 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-# include "libft.h"
+# include "Libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h>
 
@@ -38,8 +38,8 @@ typedef struct		s_spec_elem
 	t_flags			flags;
 	int				fwidth;
 	int				precision;
-	char			*smod;
-	char 			type;
+	char			smod[3];
+	char 			cletter;
 }					t_spec_elem;
 
 void				ft_printf(const char *restrict format, ...);
@@ -50,8 +50,12 @@ void				check_init_flags(char *format, int *step, t_spec_elem *spec);
 void				check_init_fwidth(char *format, int *step, t_spec_elem *spec);
 void				check_init_precision(char *format, int *step, t_spec_elem *spec);
 void				check_init_modifiers(char *format, int *step, t_spec_elem *spec);
-
+void				check_init_specifier(char *format, int *step, t_spec_elem *spec);
 int					is_specifier(char c);
 int					is_flag(char c);
+int					is_modifier(char c);
+
+//////	for testing	//////
+void 				p(t_spec_elem *spec);
 
 #endif

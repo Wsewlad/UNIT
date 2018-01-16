@@ -6,13 +6,13 @@
 #    By: vfil <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/26 15:07:48 by vfil              #+#    #+#              #
-#    Updated: 2018/01/11 17:02:13 by vfil             ###   ########.fr        #
+#    Updated: 2018/01/16 20:08:25 by vfil             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libftprintf.a
+NAME	=	libft.a
 
-LIBFTSRC    =	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
+SRC		=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 			ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c \
 			ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c \
 			ft_strrchr.c ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c \
@@ -27,12 +27,6 @@ LIBFTSRC    =	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 			ft_lstiter.c ft_lstmap.c ft_lstdelcont.c ft_strrev.c \
 			ft_itoa_base.c get_next_line.c ft_chrjoin_free.c ft_strjoin_free.c
 
-LSRC    =   $(addprefix Libft/, $(LIBFTSRC))
-
-SRC		=	ft_printf.c check_init_specification.c check_init_specification2.c is_spec_elem.c
-
-LOSRC   =   $(LIBFTSRC:.c=.o)
-
 OSRC	=	$(SRC:.c=.o)
 
 MAKE	=	@make
@@ -43,8 +37,8 @@ FLAGS	=	-Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	@gcc $(FLAGS) -c $(SRC) $(LSRC)
-	@ar rc $(NAME) $(OSRC) $(LOSRC)
+	@gcc $(FLAGS) -c $(SRC)
+	@ar rc $(NAME) $(OSRC)
 
 %.o : %.c
 	@gcc $(FLAGS) -c $<
