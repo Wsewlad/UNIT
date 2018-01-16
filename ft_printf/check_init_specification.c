@@ -6,7 +6,7 @@
 /*   By: vfil <vfil@student.unit.ua>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:45:32 by vfil              #+#    #+#             */
-/*   Updated: 2018/01/15 12:45:36 by vfil             ###   ########.fr       */
+/*   Updated: 2018/01/16 21:12:46 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ void	check_init_flags(char *format, int *step, t_spec_elem *spec)
 	{
 		if (*format == '-')
 			spec->flags.minus = 1;
-		if (*format == '+')
+		else if (*format == '+')
 			spec->flags.plus = 1;
-		if (*format == '0')
+		else if (*format == '0')
 			spec->flags.zero = 1;
-		if (*format == '#')
+		else if (*format == '#')
 			spec->flags.hash = 1;
-		if (*format == ' ')
+		else if (*format == ' ')
 			spec->flags.space = 1;
 		format++;
 		(*step)++;
