@@ -44,9 +44,10 @@ void	check_init_specifier(char *format, int *step, t_spec_elem *spec)
 	}
 }
 
-//////	for testing	//////
-void 	p(t_spec_elem *spec)
+void	p(t_spec_elem *spec)
 {
-	printf("minus: %d plus: %d zero: %d hash: %d space: %d fwidth: %d precision: %d smod: %s cletter: %c\n", spec->flags.minus, spec->flags.plus, spec->flags.zero,
-		   spec->flags.hash, spec->flags.space, spec->fwidth, spec->precision, spec->smod, spec->cletter);
+	printf("minus: %d plus: %d zero: %d hash: %d space: %d fwidth:\
+	%d precision: %d smod: %s cletter: %c\n", spec->flags.minus,\
+	spec->flags.plus, spec->flags.zero, spec->flags.hash, spec->flags.space,\
+	spec->fwidth, spec->precision, spec->smod, spec->cletter);
 }

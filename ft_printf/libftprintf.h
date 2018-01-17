@@ -42,6 +42,14 @@ typedef struct		s_spec_elem
 	char 			cletter;
 }					t_spec_elem;
 
+typedef void		(*t_convert)(char **res, char *smod, va_list ap);
+
+typedef struct 		s_conv
+{
+	char 			letter;
+	t_convert		make;
+}					t_conv;
+
 void				ft_printf(const char *restrict format, ...);
 int					prntf_parse(char **res, char *format, va_list ap);
 int					check_init_specification(char *format, t_spec_elem *spec);
@@ -51,10 +59,15 @@ void				check_init_fwidth(char *format, int *step, t_spec_elem *spec);
 void				check_init_precision(char *format, int *step, t_spec_elem *spec);
 void				check_init_modifiers(char *format, int *step, t_spec_elem *spec);
 void				check_init_specifier(char *format, int *step, t_spec_elem *spec);
+
 int					is_specifier(char c);
 int					is_flag(char c);
 int					is_modifier(char c);
 
+void				test(char **res, char *smod, va_list ap);
+void				convert_chr(char **res, char *smod, va_list ap);
+void				convert_str(char **res, char *smod, va_list ap);
+void				convert_int(char **res, char *smod, va_list ap);
 //////	for testing	//////
 void 				p(t_spec_elem *spec);
 

@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   prntf_numb.c                                       :+:      :+:    :+:   */
+/*   prntf_chrstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfil <vfil@student.unit.ua>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/12 17:40:38 by vfil              #+#    #+#             */
-/*   Updated: 2018/01/12 17:40:43 by vfil             ###   ########.fr       */
+/*   Created: 2018/01/17 15:20:08 by vfil              #+#    #+#             */
+/*   Updated: 2018/01/17 15:20:10 by vfil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	convert_int(char **res, char *smod, va_list ap)
+void	test(char **res, char *smod, va_list ap)
 {
 	char	*buf;
-	char 	*buf2;
 	t_conversions	cl;
 
-	buf2 = smod;
-	if ((cl.d = va_arg(ap, int)))
-	{
-		ft_strjoin_free(res, buf = ft_itoa(cl.d));
-		ft_strdel(&buf);
-	}
+	buf = smod;
+	if ((cl.s = va_arg(ap, char *)))
+		ft_strjoin_free(res, "_test_");
+}
+
+void	convert_chr(char **res, char *smod, va_list ap)
+{
+	char	*buf;
+	t_conversions	cl;
+
+	buf = smod;
+	if ((cl.c = (char)va_arg(ap, int)))
+		ft_chrjoin_free(res, cl.c);
+}
+
+void	convert_str(char **res, char *smod, va_list ap)
+{
+	char	*buf;
+	t_conversions	cl;
+
+	buf = smod;
+	if ((cl.s = va_arg(ap, char *)))
+		ft_strjoin_free(res, cl.s);
 }
